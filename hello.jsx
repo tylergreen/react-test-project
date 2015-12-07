@@ -1,11 +1,18 @@
 import React from 'react';
 
-class Hello extends React.Component {
+class Badge extends React.Component {
     render() {
-            return <button class="btn btn-primary" type="button">
-            Messages <span class="badge">4</span>
+            return <button className="btn btn-primary" type="button">
+            {this.props.title} <span className="badge">{this.props.count}</span>
             </button>
     }
 }
 
-React.render(<Hello/>, document.getElementById('hello'));
+let options = {
+    title: 'Tyler Rules',
+    count: 22
+}
+
+let element = React.createElement(Badge, options)
+
+React.render(element, document.getElementById('hello'));
